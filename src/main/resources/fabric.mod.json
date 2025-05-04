@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "endportalmod",
+  "version": "1.0.0",
+  "name": "End Portal Side Mod",
+  "description": "Genera el portal al End a la derecha del marco.",
+  "authors": ["TuNombre"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.tumod.endportalmod.EndPortalActivatorMod"
+    ]
+  },
+  "mixins": [
+    "endportalmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "1.20.1"
+  }
+}
