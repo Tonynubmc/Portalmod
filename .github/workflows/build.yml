@@ -1,10 +1,9 @@
-name: Build Mod
+name: Build and Release Mod
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -26,8 +25,9 @@ jobs:
     - name: Compilar el mod
       run: ./gradlew build
 
-    - name: Subir el `.jar` como artefacto
-      uses: actions/upload-artifact@v3
+    - name: Crear release con el .jar
+      uses: softprops/action-gh-release@v1
       with:
-        name: Portalmod
-        path: build/libs/*.jar
+        files: build/libs/*.jar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
